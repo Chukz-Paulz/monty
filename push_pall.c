@@ -9,10 +9,10 @@
 void f_push(stack_t **head, unsigned int counter)
 {
 	/*Declarations*/
-	int n, j = 0, flag = 0;
+	int n, flag = 0;
 
-	if (!bus.arg || !isdigit(bus.arg[0]) &&
-	(bus.arg[0] != '-' || !isdigit(bus.arg[1])))
+	if (!bus.arg || (!isdigit(bus.arg[0]) &&
+	(bus.arg[0] != '-' || !isdigit(bus.arg[1]))))
 	{
 		flag = 1;
 	}

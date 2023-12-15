@@ -37,6 +37,7 @@ typedef struct bus_s
 	FILE *file;
 	char *content;
 	int lifi;
+	stack_t *head;
 }  bus_t;
 extern bus_t bus;
 /**
@@ -76,5 +77,12 @@ void f_pchar(stack_t **head, unsigned int counter);
 void f_pstr(stack_t **head, unsigned int counter);
 void f_rotl(stack_t **head, unsigned int counter);
 void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void free_stack(stack_t *head);
+void addnode(stack_t **head, int n);
+int stack_length(stack_t *head);
+void handle_stack_error(unsigned int counter, const char *message);
+void handle_division_by_zero(unsigned int counter);
+void handle_pchar_error(unsigned int counter, const char *message);
+
 #endif
 
