@@ -34,19 +34,18 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	while (read_line > 0)
 	{
+		read_line = getline(&content, &size, file);
 		bus.content = content;
 		counter++;
-		read_line = getline(&content, &size, file);
 
-		if (read_line > 0)
-		{
-			execute(content, &stack, counter, file);
-		}
-
+	if (read_line > 0)
+	{
+		execute(content, &stack, counter, file);
+	}
 		free(content);
+		content = NULL;
 	}
 	free_stack(stack);
 	fclose(file);
