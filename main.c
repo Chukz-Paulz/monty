@@ -1,7 +1,8 @@
 #include "monty.h"
 
 bus_t bus = {NULL, NULL, NULL, 0, NULL};
-
+#define _GNU_SOURCE
+#define _POSIX_C_SOURCE 200809L
 /**
 * main - The monty code interpreter
 * @argc: number of arguments
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
+	char *content = NULL;
+	/*read_line = _getline(&content, &size, file);*/
 
 	if (argc != 2)
 	{
@@ -32,13 +35,11 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	char *content = NULL;
-
 	while (read_line > 0)
 	{
-		read_line = getline(&content, &size, file);
 		bus.content = content;
 		counter++;
+		read_line = getline(&content, &size, file);
 
 		if (read_line > 0)
 		{

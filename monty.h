@@ -83,6 +83,6 @@ int stack_length(stack_t *head);
 void handle_stack_error(unsigned int counter, const char *message);
 void handle_division_by_zero(unsigned int counter);
 void handle_pchar_error(unsigned int counter, const char *message);
-
+ssize_t custom_getline(char **lineptr, size_t *n, FILE *stream);
 #endif
 

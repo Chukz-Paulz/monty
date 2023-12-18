@@ -39,11 +39,19 @@ void f_push(stack_t **head, unsigned int counter)
  * @counter: not used
  * Return: returns nothing
 */
+
 void f_pall(stack_t **head, unsigned int counter)
 {
 	/*declaration*/
 	stack_t *current = *head;
 	(void)counter;
+
+	/* Add a check for an empty stack*/
+	if (current == NULL)
+	{
+		fprintf(stderr, "Stack is empty\n");
+		return;
+	}
 
 	while (current)
 	{
